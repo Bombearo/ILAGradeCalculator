@@ -37,22 +37,24 @@ def AnnoyingGradeBoundaries(g):
 		return "Failing"
 
 #Validate the scores
-def get_score(boundary,text):
-	score = input(text)
+def get_value(boundary,text):
+	score = ""
 	while isinstance(score,str):
 		try:
-			score = int(score)
+			score = input(text)
+			score = float(score)
 		except ValueError:
 			print("You have entered an invalid number, please try again")
 
+
 	while score > boundary or score < 0:
 		print("Sorry, your input is out of bounds")
-		score = input(text)
+		score = get_value(boundary,text)
 	return score
 
 def Main():
-	week = input("what week of ILA have you last completed \n")
-	handins = input("how many hand-ins have you done \n")
+	week = get_value(10,"what week of ILA have you last completed \n")
+	handins = get_value(4,"how many hand-ins have you done \n")
 	has_synoptic = input("have you done the synoptic yet: Y/n \n")
 	quizzes = []
 	handin_result_list = []
@@ -60,10 +62,10 @@ def Main():
 	i = 1
 	j = 1
 	while i <= int(week):
-		quizzes.append(get_score(10,"what was your grade out of 10 for week"+str(i)+"\n"))
+		quizzes.append(get_value(10,"what was your grade out of 10 for week"+str(i)+"\n"))
 		i+=1
 	while j <= int(handins):
-		handin_result_list.append(get_score(20,"what did you get for handin "+str(j)+"\n"))
+		handin_result_list.append(get_value(20,"what did you get for handin "+str(j)+"\n"))
 		j+=1
 	if has_synoptic.lower() == "y":
 		synoptic = input("what did you get for your synoptic")

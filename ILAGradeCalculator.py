@@ -3,7 +3,7 @@ def remove_n_smallest(lst, n):
         m = min(lst)
         lst.remove(m)
 
-def WeeklyQuizzes (arr):
+def weekly_quizzes (arr):
 	listr = list(map(float, arr))
 	remove_n_smallest(listr,2)
 	return (sum(listr) / (len(listr)*10))*40
@@ -52,7 +52,7 @@ def get_value(boundary,text):
 		score = get_value(boundary,text)
 	return score
 
-def Main():
+def main():
 	week = get_value(10,"what week of ILA have you last completed \n")
 	handins = get_value(4,"how many hand-ins have you done \n")
 	has_synoptic = input("have you done the synoptic yet: Y/n \n")
@@ -69,7 +69,7 @@ def Main():
 		j+=1
 	if has_synoptic.lower() == "y":
 		synoptic = input("what did you get for your synoptic")
-	weekly_results = WeeklyQuizzes(quizzes)
+	weekly_results = weekly_quizzes(quizzes)
 	handin_results = Handins(handin_result_list)
 	print("Your grade is:")
 	print("For Weekly Quizzes, you have "+str(weekly_results)+"% out of the 40% available")
@@ -88,5 +88,5 @@ def Main():
 		print("Your current total is: "+str((weekly_results+(float(handin_results/100)*30)))+"% out of your available 70% (scaled to 100% it would be:" +str((weekly_results+(float(handin_results/100)*30))*1.42857142857))
 		print("Your Grade Boundary is: "+AnnoyingGradeBoundaries((weekly_results+(float(handin_results/100)*30))) + " scaled: " + AnnoyingGradeBoundaries((weekly_results+(float(handin_results/100)*30))*1.42857142857))
 if __name__ == '__main__':
-	Main()
+	main()
 

@@ -67,6 +67,8 @@ def Main():
 		print("Your total is:"+str((weekly_results+(float(handin_results/100)*30)+synoptic_results))+"%")
 		print("Your Grade Boundary is: "+AnnoyingGradeBoundaries((weekly_results+(float(handin_results/100)*30)+synoptic_results))+" out of the 30% available")
 	else:
+		if week == 10:
+			print("ignore the scaling now")
 		print("Your current total is: "+str((weekly_results+(float(handin_results/100)*30)))+"% out of your available 70% (scaled to 100% it would be:" +str((weekly_results+(float(handin_results/100)*30))*1.42857142857))
 		print("Your Grade Boundary is: "+AnnoyingGradeBoundaries((weekly_results+(float(handin_results/100)*30))) + " scaled: " + AnnoyingGradeBoundaries((weekly_results+(float(handin_results/100)*30))*1.42857142857))
 Main()

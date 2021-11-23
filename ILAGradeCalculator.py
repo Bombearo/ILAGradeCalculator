@@ -1,7 +1,7 @@
 def remove_n_smallest(lst, n):
     for _ in range(n):
         m = min(lst)
-        lst[:] = (x for x in lst if x != m)
+        lst.remove(m)
 
 def WeeklyQuizzes (arr):
 	listr = list(map(float, arr))

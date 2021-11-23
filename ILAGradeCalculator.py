@@ -12,7 +12,7 @@ def Handins(arr):
 	listr = list(map(float, arr))
 	listdiv = [i/2 for i in listr]
 	remove_n_smallest(listdiv,1)
-	return float(sum(float v for i in listdiv)/29)*100
+	return float(sum(float v for i in listdiv)/30)*100
 # TODO: Add Synoptic Test
 def Synoptic(p):
 	return 30 * float(p/100)
